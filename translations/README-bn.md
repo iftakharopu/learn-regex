@@ -32,7 +32,7 @@
 * [فارسی](translations/README-fa.md)
 * [বাংলা](translations/README-bn.md)
 
-## Regular Expression কি?
+## রেগুলার এক্সপ্রেশন কি?
 
 > Regular Expression (রেগুলার এক্সপ্রেশন) হলো কিছু ক্যারেক্টার (character) এর সমষ্টি, যা একটা লেখনীর (text) এর নির্দিষ্ট কোন প্যাটার্ণ খুঁজতে সহায়তা করে । 
 
@@ -50,34 +50,34 @@
 
 ## সূচীপত্র
 
-- [Basic Matchers](#1-basic-matchers)
-- [Meta Characters](#2-meta-characters)
-  - [The Full Stop](#21-the-full-stops)
-  - [Character Sets](#22-character-sets)
-    - [Negated Character Sets](#221-negated-character-sets)
-  - [Repetitions](#23-repetitions)
-    - [The Star](#231-the-star)
+- [বেসিক ম্যাচার](#1-basic-matchers)
+- [মেটা ক্যারেক্টারস](#2-meta-characters)
+  - [ফুলস্টপ](#21-the-full-stops)
+  - [ক্যারেকটার সেটস](#22-character-sets)
+    - [নিগেটেড ক্যারেকটার সেটস](#221-negated-character-sets)
+  - [রিপিটিশন/পুনরাবৃত্তি](#23-repetitions)
+    - [স্টার (*)](#231-the-star)
     - [The Plus](#232-the-plus)
     - [The Question Mark](#233-the-question-mark)
-  - [Braces](#24-braces)
-  - [Capturing Groups](#25-capturing-groups)
-      - [Non-Capturing Groups](#251-non-capturing-groups)
-  - [Alternation](#26-alternation)
-  - [Escaping Special Characters](#27-escaping-special-characters)
-  - [Anchors](#28-anchors)
-    - [The Caret](#281-the-caret)
-    - [The Dollar Sign](#282-the-dollar-sign)
-- [Shorthand Character Sets](#3-shorthand-character-sets)
-- [Lookarounds](#4-lookarounds)
-  - [Positive Lookahead](#41-positive-lookahead)
-  - [Negative Lookahead](#42-negative-lookahead)
-  - [Positive Lookbehind](#43-positive-lookbehind)
-  - [Negative Lookbehind](#44-negative-lookbehind)
-- [Flags](#5-flags)
-  - [Case Insensitive](#51-case-insensitive)
-  - [Global Search](#52-global-search)
-  - [Multiline](#53-multiline)
-- [Greedy vs Lazy Matching](#6-greedy-vs-lazy-matching)
+  - [ব্রেসেস / বন্ধনী](#24-braces)
+  - [ক্যাপচারিং গ্রুপ ](#25-capturing-groups)
+      - [নন-ক্যাপচারিং গ্রুপ ](#251-non-capturing-groups)
+  - [অল্টারেশন](#26-alternation)
+  - [এস্কেপিং স্পেশাল ক্যারেকটার (বিশেষ যতিচিহ্ন বাদ দেওয়া)](#27-escaping-special-characters)
+  - [এ্যাংকরস](#28-anchors) 
+    - [ক্যারেট](#281-the-caret)
+    - [ডলার সাইন](#282-the-dollar-sign)
+- [শর্টহ্যান্ড ক্যারেকটার সেটস](#3-shorthand-character-sets)
+- [লুকএরাউন্ডস](#4-lookarounds)
+  - [পজিটিভ লুকএহেড](#41-positive-lookahead)
+  - [নেগেটিভ লুকএহেড](#42-negative-lookahead)
+  - [পজিটিভ লুকবিহাইন্ড](#43-positive-lookbehind)
+  - [নেগেটিভ লুকবিহাইন্ড](#44-negative-lookbehind)
+- [ফ্ল্যাগস](#5-flags)
+  - [কেস ইনসেন্সিটিভ](#51-case-insensitive)
+  - [গ্লোবার সার্চ](#52-global-search)
+  - [মাল্টিলাইন](#53-multiline)
+- [গ্রীডি বনাম লেজি ম্যাচিং](#6-greedy-vs-lazy-matching)
 
 
 ## ১. বেসিক ম্যাচার
@@ -152,7 +152,198 @@
 
 ### ২.৩.১ স্টার (*)
 
-স্টার বা এস্টারিস্ক সিম্বল `*`   
+স্টার বা এস্টারিস্ক সিম্বল `*`  
+
+<pre>
+"[a-z]*" => T<a href="#learn-regex"><strong>he</strong></a> <a href="#learn-regex"><strong>car</strong></a> <a href="#learn-regex"><strong>parked</strong></a> <a href="#learn-regex"><strong>in</strong></a> <a href="#learn-regex"><strong>the</strong></a> <a href="#learn-regex"><strong>garage</strong></a> #21.
+</pre>
+
+[রেগুলার এক্সপ্রেশনটি পরীক্ষা করে দেখুন](https://regex101.com/r/7m8me5/1)
+
+### ২.৩.২ প্লাস
+
+<pre>
+"c.+t" => The fat <a href="#learn-regex"><strong>cat sat on the mat</strong></a>.
+</pre>
+
+[রেগুলার এক্সপ্রেশনটি পরীক্ষা করে দেখুন](https://regex101.com/r/Dzf9Aa/1)
+
+### ২.৩.৩ কোয়াশ্চেন মার্ক
+
+<pre>
+"[T]he" => <a href="#learn-regex"><strong>The</strong></a> car is parked in the garage.
+</pre>
+
+[রেগুলার এক্সপ্রেশনটি পরীক্ষা করে দেখুন](https://regex101.com/r/cIg9zm/1)
+
+<pre>
+"[T]?he" => <a href="#learn-regex"><strong>The</strong></a> car is parked in t<a href="#learn-regex"><strong>he</strong></a> garage.
+</pre>
+
+[রেগুলার এক্সপ্রেশনটি পরীক্ষা করে দেখুন](https://regex101.com/r/kPpO2x/1)
+
+### ২.৪ ব্রেসেস / বন্ধনী 
+
+<pre>
+"[0-9]{2,3}" => The number was 9.<a href="#learn-regex"><strong>999</strong></a>7 but we rounded it off to <a href="#learn-regex"><strong>10</strong></a>.0.
+</pre>
+
+[রেগুলার এক্সপ্রেশনটি পরীক্ষা করে দেখুন](https://regex101.com/r/juM86s/1)
+
+
+
+<pre>
+"[0-9]{2,}" => The number was 9.<a href="#learn-regex"><strong>9997</strong></a> but we rounded it off to <a href="#learn-regex"><strong>10</strong></a>.0.
+</pre>
+
+[রেগুলার এক্সপ্রেশনটি পরীক্ষা করে দেখুন](https://regex101.com/r/Gdy4w5/1)
+
+<pre>
+"[0-9]{3}" => The number was 9.<a href="#learn-regex"><strong>999</strong></a>7 but we rounded it off to 10.0.
+</pre>
+
+[রেগুলার এক্সপ্রেশনটি পরীক্ষা করে দেখুন](https://regex101.com/r/Sivu30/1)
+
+
+
+### ২.৫ ক্যাপচারিং গ্রুপ 
+
+<pre>
+"(c|g|p)ar" => The <a href="#learn-regex"><strong>car</strong></a> is <a href="#learn-regex"><strong>par</strong></a>ked in the <a href="#learn-regex"><strong>gar</strong></a>age.
+</pre>
+
+[রেগুলার এক্সপ্রেশনটি পরীক্ষা করে দেখুন](https://regex101.com/r/tUxrBG/1)
+
+### ২.৫.১ নন ক্যাপচারিং গ্রুপ 
+
+<pre>
+"(?:c|g|p)ar" => The <a href="#learn-regex"><strong>car</strong></a> is <a href="#learn-regex"><strong>par</strong></a>ked in the <a href="#learn-regex"><strong>gar</strong></a>age.
+</pre>
+
+[রেগুলার এক্সপ্রেশনটি পরীক্ষা করে দেখুন](https://regex101.com/r/Rm7Me8/1)
+
+### অল্টারেশন / 
+
+<pre>
+"(T|t)he|car" => <a href="#learn-regex"><strong>The</strong></a> <a href="#learn-regex"><strong>car</strong></a> is parked in <a href="#learn-regex"><strong>the</strong></a> garage.
+</pre>
+
+[রেগুলার এক্সপ্রেশনটি পরীক্ষা করে দেখুন](https://regex101.com/r/fBXyX0/1)
+
+### ২.৭ এস্কেপিং স্পেশাল ক্যারেকটার (বিশেষ যতিচিহ্ন বাদ দেওয়া)
+
+<pre>
+"(f|c|m)at\.?" => The <a href="#learn-regex"><strong>fat</strong></a> <a href="#learn-regex"><strong>cat</strong></a> sat on the <a href="#learn-regex"><strong>mat.</strong></a>
+</pre>
+
+[রেগুলার এক্সপ্রেশনটি পরীক্ষা করে দেখুন](https://regex101.com/r/DOc5Nu/1)
+
+## ২.৮ এ্যাংকরস
+রেগুলার এক্সপ্রেশনে আমরা এ্যাংকরস ব্যাবহার করি এটা যাচাই করতে যে যেই ম্যাচিং সিম্বল নিয়ে আমরা কাজ করছি ঐটা ইনপুট স্ট্রীং এর শুরুতে আছে নাকি শেষে আছে ।
+এ্যাংকরস ২ ধরণের হয়ঃ
+প্রথম টাইপের এ্যাংকর হলো `^` (ক্যারেট চিহ্ন), এটা চেক করে যে ম্যাচিং ক্যারেকটার কি ইনপুটের প্রথম ক্যারেকটার কি না ।
+ আরেক ধরণের এ্যাংকর হল `$` (ডলার সাইন), এটা চেক করে যে ম্যাচিং ক্যারেকটার কি ইনপুটের শেষ ক্যারেকটার কি না ।
+
+### ২.৮.১ ক্যারেট 
+
+`^` (ক্যারেট), চেক করে যে ম্যাচিং ক্যারেকটার কি ইনপুটের প্রথম ক্যারেকটার কি না । যেমনঃ `^a` আমরা যদি এই রেগুলার এক্সপ্রেশন এ(অর্থাৎ a কে অবশ্যই শুরুর ক্যারেকটার হতে হবে) `abc` এই স্ট্রীং এর মধ্যে, এটা `a` এর সাথে ম্যাচ করছে । কিন্তু উপরোক্ত স্ট্রীং এর সাথে যদি `^b` রেগুলার এক্সপ্রেশন ব্যাবহার করি তাহলে এটি ম্যাচ করবে না । কেননা `abc` এই স্ট্রীং এ "b" শুরুর ক্যারেকটার না। 
+আরেকটি রেগুলার এক্সপ্রেশন `^(T|t)he` যদি চেক করতে যাই তাহলে 
+আমরা দেখতে পাই , বড়হাতের `T` অথবা ছোটহাতের `t` স্ট্রীং এর প্রথম ক্যারেকটার হতে হবে এর পরে  ছোটহাতের `h` এবং তারপর ছোটহাতের `e` ।
+
+<pre>
+"(T|t)he" => <a href="#learn-regex"><strong>The</strong></a> car is parked in <a href="#learn-regex"><strong>the</strong></a> garage.
+</pre>
+
+[রেগুলার এক্সপ্রেশনটি পরীক্ষা করে দেখুন](https://regex101.com/r/5ljjgB/1)
+
+<pre>
+"^(T|t)he" => <a href="#learn-regex"><strong>The</strong></a> car is parked in the garage.
+</pre>
+
+[রেগুলার এক্সপ্রেশনটি পরীক্ষা করে দেখুন](https://regex101.com/r/jXrKne/1)
+
+### ২.৮.২ ডলার সাইন 
+<pre>
+"(at\.)" => The fat c<a href="#learn-regex"><strong>at.</strong></a> s<a href="#learn-regex"><strong>at.</strong></a> on the m<a href="#learn-regex"><strong>at.</strong></a>
+</pre>
+
+[রেগুলার এক্সপ্রেশনটি পরীক্ষা করে দেখুন](https://regex101.com/r/y4Au4D/1)
+
+<pre>
+"(at\.)$" => The fat cat. sat. on the m<a href="#learn-regex"><strong>at.</strong></a>
+</pre>
+
+[রেগুলার এক্সপ্রেশনটি পরীক্ষা করে দেখুন](https://regex101.com/r/t0AkOd/1)
+
+## ৩. শর্টহ্যান্ড ক্যারেকটার সেটস
+কয়েক প্রকার শর্টহ্যান্ড ক্যারেকটার সেটস আছে যেগুলো সচরাচর বযাবহৃত হয়/
+রেগুলার এক্সপ্রেশনঃ 
+
+|শর্টহ্যান্ড|বর্ণনা|
+|:----:|----|
+|.|যেকোন ক্যারেক্টার, নিউলাইন বাদে|
+|\w|আলফানিউমেরিক ক্যারেকটার এর সাথে ম্যাচ করে : `[a-zA-Z0-9_]`|
+|\W|নন-আলফানিউমেরিক ক্যারেকটার এর সাথে ম্যাচ করে: `[^\w]`|
+|\d|সংখ্যার সাথে ম্যাচ করে : `[0-9]`|
+|\D|চিহ্নের সাথে ম্যাচ করে : `[^\d]`|
+|\s|হোয়াইটস্পেস ক্যারেকটার এর সাথে ম্যাচ করে : `[\t\n\f\r\p{Z}]`|
+|\S|নন -হোয়াইটস্পেস ক্যারেকটার এর সাথে ম্যাচ করে: `[^\s]`|
+
+## ৪ লুকএরাউন্ডস
+
+### ৪.১ পজিটিভ লুকএহেড
+
+<pre>
+"(T|t)he(?=\sfat)" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on the mat.
+</pre>
+
+[রেগুলার এক্সপ্রেশনটি পরীক্ষা করে দেখুন](https://regex101.com/r/IDDARt/1)
+
+### ৪.৪ নেগেটিভ লুকএহেড
+
+<pre>
+"(T|t)he(?!\sfat)" => The fat cat sat on <a href="#learn-regex"><strong>the</strong></a> mat.
+</pre>
+
+[রেগুলার এক্সপ্রেশনটি পরীক্ষা করে দেখুন](https://regex101.com/r/V32Npg/1)
+
+
+### ৪.৩ পজিটিভ লুকবিহাইন্ড
+ পজিটিভ লুকবিহাইন্ড হলো ঐ সকল ম্যাচ চেক করে দেখা যা কোন নির্দিষ্ট(স্পেসিফিক) প্যাটার্ণ ফলো করে । পজিটিভ লুকবিহাইন্ড লিখার নিয়মঃ `(?<=...)` উদাহরণস্বরূপ রেগুলার এক্সপ্রেশন `(?<=(T|t)he\s)(fat|mat)` এর অর্থ ইনপুট স্ট্রীং এর মধ্যে সকল `fat` বা `mat` শন্দ খুঁজে বের করা, যখন এটা `The` বা `the` এর পরে আছে ।
+
+ <pre>
+"(?<=(T|t)he\s)(fat|mat)" => The <a href="#learn-regex"><strong>fat</strong></a> cat sat on the <a href="#learn-regex"><strong>mat</strong></a>.
+</pre>
+
+[রেগুলার এক্সপ্রেশনটি পরীক্ষা করে দেখুন](https://regex101.com/r/avH165/1)
+
+
+
+### ৪.৪ নেগেটিভ লুকবিহাইন্ড
+
+নেগেটিভ লুকবিহাইন্ড হলো সব ম্যাচ চেক করে দেখা যা কোন স্পেসফিক প্যাটার্ন ফলো করে না । নেগেটীভ লুকব্যাক লেখার পদ্ধতি ঃ `(?<!...)` যেমনঃ রেগুলার এক্সপ্রেশন `(?<!(T|t)he\s)(cat)` এর মানে, ইনপুত স্ট্রীং এর যত জায়গায় `cat` আছে সব চেক করা যেগুলো `The` বা `the` এর পরে আছে ।
+
+<pre>
+"(?&lt;!(T|t)he\s)(cat)" => The cat sat on <a href="#learn-regex"><strong>cat</strong></a>.
+</pre>
+
+[রেগুলার এক্সপ্রেশনটি পরীক্ষা করে দেখুন](https://regex101.com/r/8Efx5G/1)
+
+
+### ৫.১ কেস সেনসিটিভ
+
+কেস সেনসিটিভ ম্যাচিং এর জন্য `i` মডিফায়ার ব্যবহার করা হয়। যেমনঃ রেগুলার এক্সপ্রেশন `/The/gi` এর মানে বড়হাতের `T`এর পরে ছোটহাতের `h` এর পর ছোটহাতের `e` এবং সবার শেষে ছোটহাতেরর `i` ফ্ল্যাগ বলে দেয় এই কেসকে ইগনোর করতে। লক্ষ্য করলে দেখবেন আমরা `g` ফ্ল্যাগ ব্যবহার করেছি, এর কারণ হলো আমরা পুরো ইনপুট স্ট্রীং এর মধ্যে প্যাটার্ণটি সার্চ করতে চাই ।  
+<pre>
+"The" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on the mat.
+</pre>
+
+[রেগুলার এক্সপ্রেশনটি পরীক্ষা করে দেখুন](https://regex101.com/r/dpQyf9/1)
+
+<pre>
+"/The/gi" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on <a href="#learn-regex"><strong>the</strong></a> mat.
+</pre>
+
+[রেগুলার এক্সপ্রেশনটি পরীক্ষা করে দেখুন](https://regex101.com/r/ahfiuh/1)
 
 
 ### ৫.২ গ্লোবাল সার্চ
@@ -175,6 +366,41 @@
 
 মাল্টিলাইন ম্যাচ এর জন্য `m` মডিফায়ার ব্যাবহার করা হয় । যেমন আমরা বলেছি প্রথমে, এ্যাংকরস(anchors) `(^, $)` 
 ব্যবহার করা হয় এটা দেখতে যে প্যাটের কোন স্ট্রীং এর শুরুতে আছে নাকি শেষে । 
+যদি আমরা প্রতি লাইনে এ্যাংকর দিয়ে কাজ করতে চাই, তাহলে আমরা `m` এ কাজ করবো। যেমনঃ রেগুলার এক্সপ্রেশন `/at(.)?$/gm` এর মানেঃ ছোটহাতের `a`, এর পর ছোটহাতের `t` এবং এর পর নিউলাইন বাদে যেকোন ক্যারেক্টার । যেহেতু এখানে `m` ফ্ল্যাগ রয়েছে এজন্য রেগুলার এক্সপ্রেশন ইঞ্জিন প্রত্যেক লাইনের শেষে স্ট্রীং ম্যাচিং এর চেষ্টা করে ।
+<pre>
+"/.at(.)?$/" => The fat
+                cat sat
+                on the <a href="#learn-regex"><strong>mat.</strong></a>
+</pre>
+
+[রেগুলার এক্সপ্রেশনটি পরীক্ষা করে দেখুন](https://regex101.com/r/hoGMkP/1)
+
+<pre>
+"/.at(.)?$/gm" => The <a href="#learn-regex"><strong>fat</strong></a>
+                  cat <a href="#learn-regex"><strong>sat</strong></a>
+                  on the <a href="#learn-regex"><strong>mat.</strong></a>
+</pre>
+
+[রেগুলার এক্সপ্রেশনটি পরীক্ষা করে দেখুন](https://regex101.com/r/E88WE2/1)
+
+
+### ৬. গ্রীডি বনাম লেজি ম্যাচিং
+
+ডিফল্টভাবেই, একটা রেজেক্স গ্রীডি ম্যাচিং অপারেশন করে, এর মানে যতক্ষণ পর্যন্ত ম্যাচিং সম্ভব ততক্ষণ পর্যন্ত ম্যাচিং হতে থাকবে । আমরা `?` ব্যবহার করতে পারি লেজি ম্যাচিং পরীক্ষা করার জন্য, এর অর্থ ম্যাচিং যত তাড়াতাড়ি করা সম্ভব তত তাড়াতাড়ি হবে ।
+
+<pre>
+"/(.*at)/" => <a href="#learn-regex"><strong>The fat cat sat on the mat</strong></a>. </pre>
+
+
+[রেগুলার এক্সপ্রেশনটি পরীক্ষা করে দেখুন](https://regex101.com/r/AyAdgJ/1)
+
+<pre>
+"/(.*?at)/" => <a href="#learn-regex"><strong>The fat</strong></a> cat sat on the mat. </pre>
+
+
+[রেগুলার এক্সপ্রেশনটি পরীক্ষা করে দেখুন](https://regex101.com/r/AyAdgJ/2)
+
+
 ## আপনার অবদান 
 
 * একটা পুল রিকুয়েস্ট করুন আপনার অবদান সহ
