@@ -43,10 +43,10 @@
 
 <br/><br/>
 <p align="center">
-  <img src="./img/regexp-bn.png" alt="Regular expression">
+  <img src="../img/regexp-bn.png" alt="রেগুলার এক্সপ্রেশন">
 </p>
 
-এই 'রেগুলার এক্সপ্রেশন'টি `john_doe`, `jo-hn_doe` এবং  `jphn12_as` এগুলো নাম নেবে কিন্ত এটি `Jo` নিবে না কেননা এইক্ষেত্রে বড়হাতের অক্ষর (Uppercase) ব্যবহার হয়েছে এবং নামটা username হিসেবে ছোট।
+এই 'রেগুলার এক্সপ্রেশন'টি `john_doe`, `jo-hn_doe` এবং  `jphn12_as` এগুলো নাম নেবে কিন্ত এটি `Jo` নিবে না । কেননা এইক্ষেত্রে বড়হাতের অক্ষর (Uppercase) ব্যবহার হয়েছে এবং নামটা username হিসেবে ছোট।
 
 ## সূচীপত্র
 
